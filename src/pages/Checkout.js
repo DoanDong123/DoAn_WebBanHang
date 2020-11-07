@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import BreadCrumb from '../components/BreadCrumb';
-import Footer from '../components/Footer';
-import InstagramPhoto from '../components/InstagramPhoto';
+import BreadCrumb from '../components/BreadCrumb/BreadCrumb';
+import InstagramPhoto from '../components/Footer/InstagramPhoto';
 import { Link, Redirect, Prompt } from 'react-router-dom';
 export default class Checkout extends Component {
     constructor(props) {
@@ -70,12 +69,12 @@ export default class Checkout extends Component {
                                         <div className="col-md-6 form-group p_star box">
                                             <input type="text" onChange={ (event) => this.isInputChange(event) }
                                                     className="form-control form-fill" id="firstName" name="firstName" placeholder=" " />
-                                            <label htmlFor="firstName" className="title">First Name</label>
+                                            <label htmlFor="firstName" className="title">Tên và tên đệm</label>
                                         </div>
                                         <div className="col-md-6 form-group p_star box">
                                             <input type="text" onChange={ (event) => this.isInputChange(event) }
                                                     className="form-control form-fill" id="lastName" name="lastName" placeholder=" " />
-                                            <label htmlFor="lastName" className="title">Last Name</label>
+                                            <label htmlFor="lastName" className="title">Họ tên</label>
                                         </div>
                                         <div className="col-md-12 form-group p_star box">
                                             <input type="text" onChange={ (event) => this.isInputChange(event) }
@@ -94,17 +93,17 @@ export default class Checkout extends Component {
                                         </div>
                                         <div className="col-md-12 form-group p_star">
                                             <select className="form-control">
-                                                <option defaultValue="Singapore">Singapore</option>
+                                                <option defaultValue="Singapore">Việt Nam</option>
                                                 <option defaultValue="New York">New York</option>
                                                 <option defaultValue="Paris">Paris</option>
                                             </select>
                                         </div>
                                         <div className="col-md-12 form-group">
                                             <div className="creat_account">
-                                                <h3>Shipping Details</h3>
+                                                <h3>Chi tiết giao hàng</h3>
                                             </div>
                                             <textarea className="form-control" name="message" id="message" rows="1"
-                                                placeholder="Order Notes"></textarea>
+                                                placeholder="Nhập chi tiết đơn hàng..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -113,47 +112,48 @@ export default class Checkout extends Component {
                                         <h2>Thông Tin Sản Phẩm Đặt Hàng</h2>
                                         <ul className="list">
                                             <li>
-                                                <Link to="#">Product
-                                                    <span>Total</span>
+                                                <Link to="#">Sản Phẩm
+                                                    <span>Tổng tiền</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="#">Fresh Blackberry
-                                                    <span className="middle">x 02</span>
+                                                <Link to="#">Áo đầm đen
+                                                    <span className="middle">1</span>
+                                                    <span className="last">$300.00</span>
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link to="#">Áo thun nam
+                                            <span className="middle">2</span>
                                                     <span className="last">$720.00</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="#">Fresh Tomatoes
-                                            <span className="middle">x 02</span>
-                                                    <span className="last">$720.00</span>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link to="#">Fresh Brocoli
-                                                    <span className="middle">x 02</span>
+                                                <Link to="#">Sơ mi nữ
+                                                    <span className="middle">2</span>
                                                     <span className="last">$720.00</span>
                                                 </Link>
                                             </li>
                                         </ul>
                                         <ul className="list list_2">
                                             <li>
-                                                <Link to="#">Subtotal
+                                                <Link to="#">Tổng cộng
                                                     <span>$2160.00</span>
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link to="#">Shipping
+                                            {/* <li>
+                                                <Link to="#">Tiền ship
                                                     <span>Flat rate: $50.00</span>
                                                 </Link>
-                                            </li>
-                                            <li>
+                                            </li> */}
+                                            {/* <li>
                                                 <Link to="#">Total
                                                     <span>$2210.00</span>
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                         </ul>
-                                        <button className="btn_3" type="submit" name="button">Proceed to Paypal</button>
+                                        {/* <button className="btn_3" type="submit" name="button">Proceed to Paypal</button> */}
+                                        <Link className="btn_3" to="/confirm-order">Tiến hành thanh toán</Link>
                                     </div>
                                 </div>
                             </form>
@@ -161,7 +161,6 @@ export default class Checkout extends Component {
                     </div>
                 </section>
                 <InstagramPhoto />
-                <Footer />
             </div>
         )
     }

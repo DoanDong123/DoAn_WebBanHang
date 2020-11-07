@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Footer from '../components/Footer';
-import ShippingDetail from '../components/ShippingDetails';
-import InstagramPhoto from '../components/InstagramPhoto';
-import BreadCrumb from '../components/BreadCrumb';
+import ShippingDetail from '../components/Footer/ShippingDetails';
+import InstagramPhoto from '../components/Footer/InstagramPhoto';
+import BreadCrumb from '../components/BreadCrumb/BreadCrumb';
 import axios from 'axios';
 
 import { Link } from 'react-router-dom';
@@ -34,7 +33,7 @@ export default class ProductDetail extends Component {
 
   render() {
     var productId = parseInt(this.props.match.params.id);
-    console.log(this.props)
+    // console.log(this.props)
     // console.log(this.state.orgtableData);
 
     return (
@@ -52,17 +51,17 @@ export default class ProductDetail extends Component {
                     <div className="col-lg-5">
                       <div className="product_slider_img">
                         <div id="vertical">
-                          <div data-thumb="img/product_details/prodect_details_1.png">
-                            <img src="img/product_details/prodect_details_1.png" alt="img1" />
+                          <div data-thumb={item.imageProduct1}>
+                            <img src={item.imageProduct1} alt="img1" />
                           </div>
-                          <div data-thumb="img/product_details/prodect_details_2.png">
-                            <img src="img/product_details/prodect_details_2.png" alt="img2" />
+                          <div data-thumb={item.imageProduct1}>
+                            <img src={item.imageProduct2} alt="img2" />
                           </div>
-                          <div data-thumb="img/product_details/prodect_details_3.png">
-                            <img src="img/product_details/prodect_details_3.png" alt="img3" />
+                          <div data-thumb={item.imageProduct1}>
+                            <img src={item.imageProduct3} alt="img3" />
                           </div>
-                          <div data-thumb="img/product_details/prodect_details_4.png">
-                            <img src="img/product_details/prodect_details_4.png" alt="img4" />
+                          <div data-thumb={item.imageProduct1}>
+                            <img src={item.imageProduct4} alt="img4" />
                           </div>
                         </div>
                       </div>
@@ -74,19 +73,19 @@ export default class ProductDetail extends Component {
                         <ul className="list">
                           <li>
                             <Link className="active" to="#">
-                              <span>Category</span> : Household
+                              <span>Loại sản phẩm</span> : Quần áo
                           </Link>
                           </li>
                           <li>
                             <Link to="#">
-                              <span>Availibility</span> : In Stock
+                              <span>Trạng thái</span> : Còn hàng
                           </Link>
                           </li>
                         </ul>
                         <p>
                           Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time.
                       </p>
-                        <form className="card_area">
+                        {/* <form className="card_area">
                           <div className="product_count d-inline-block">
                             <span className="inumber-decrement"><i className="ti-minus"></i></span>
                             <input className="input-number" type="text" defaultValue="1" min="0" max="10" required />
@@ -95,7 +94,7 @@ export default class ProductDetail extends Component {
                           <div className="add_to_cart">
                             <button to="#" className="btn_3">add to cart</button>
                           </div>
-                        </form>
+                        </form> */}
                       </div>
                     </div>
                   </div>
@@ -344,7 +343,6 @@ export default class ProductDetail extends Component {
 
         <ShippingDetail />
         <InstagramPhoto />
-        <Footer />
       </div>
     )
   }
